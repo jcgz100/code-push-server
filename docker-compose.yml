@@ -23,11 +23,13 @@ services:
       - redis
   mysql:
     image: mysql:latest
+    command: --mysql-native-password=ON
     volumes:
       - data-mysql:/var/lib/mysql
       - ./sql/codepush-all-docker.sql:/docker-entrypoint-initdb.d/codepush-all.sql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'On'
+      MYSQL_ROOT_HOST: "%"
   redis:
     image: redis:latest
     volumes:
