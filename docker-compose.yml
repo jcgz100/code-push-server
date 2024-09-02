@@ -22,7 +22,7 @@ services:
       - mysql
       - redis
   mysql:
-    image: mysql:latest
+    image: mysql:8.4.1
     command: --mysql-native-password=ON
     volumes:
       - data-mysql:/var/lib/mysql
